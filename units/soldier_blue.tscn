@@ -4,4 +4,6 @@
 
 [node name="soldier_blue" instance=ExtResource( 1 )]
 
+frame = 2
+
 
