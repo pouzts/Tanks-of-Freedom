@@ -128,7 +128,7 @@
 					<string> "__editor_plugin_screen__" </string>
 					<string> "2D" </string>
 				</dictionary>
-				<int> -1 </int>
+				<int> 0 </int>
 				<vector2> 0, 0 </vector2>
 				<int> 1 </int>
 				<real> 0 </real>
