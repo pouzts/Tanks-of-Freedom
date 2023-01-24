@@ -19,15 +19,19 @@ var kills = 0
 var life
 var max_life
 var attack
+var healing
 var plain
 var road
 var river
 var max_ap
 var limited_ap
 var attack_ap
+var healing_ap
 var max_attacks_number
+var max_healings_number
 var ap
 var attacks_number
+var healing_number
 var visibility
 
 var group = 'unit'
@@ -82,13 +86,20 @@ func get_initial_pos():
     return position_on_map
 
 func get_stats():
-    return {'life' : life, 'attack' : attack, 'ap' : get_ap(), 'attack_ap': attack_ap, 'attacks_number' : attacks_number}
+    return {'life' : life, 'attack' : attack, 'ap' : get_ap(), 'attack_ap': attack_ap, 'attacks_number' : attacks_number, 'healing' : healing, 'healing_ap' : healing_ap, 'healing_number' : healing_number}
+#func get_healingStats():
+	#return {'life' : life, 'heal' : healing, 'healing_ap' : healing_ap, 'healing_number' : healing_number}
+#func get_stats():
+    #return {'life' : life, 'attack' : attack, 'ap' : get_ap(), 'attack_ap': attack_ap, 'attacks_number' : attacks_number}
+	
 
 func set_stats(new_stats):
     life = new_stats.life
     attack = new_stats.attack
     ap = new_stats.ap
     attacks_number = new_stats.attacks_number
+    healing = new_stats.healing
+    healing_number = new_stats.healing_number
     self.update_healthbar()
     self.update_shield()
     self.set_no_ap_idle()
@@ -109,6 +120,7 @@ func reset_ap(limit_ap):
         self.ap = self.max_ap
 
     attacks_number = max_attacks_number
+    healing_number = max_healings_number
     self.update_shield()
     self.update_healthbar()
     self.set_no_ap_idle()
@@ -151,6 +163,11 @@ func can_attack():
     if self.ap >= self.attack_ap && self.attacks_number > 0:
         return true
     return false
+
+func can_heal():
+	if self.ap >= self.healing_ap && self.healing_number > 0:
+		return true
+	return false
 
 func can_defend():
     if self.ap >= self.attack_ap:
@@ -243,6 +260,11 @@ func can_attack_unit_type(defender):
         return false
 
     return true
+func can_heal_unit_type(defender):
+	if type == 1 && defender.type == 2:
+		return false
+
+	return true
 
 func _ready():
     self.add_to_group("units")
