@@ -52,25 +52,30 @@ func init_root(root_node):
         ["BARRACKS", self.tiles.TERRAIN_BARRACKS_FREE, "terrain", self.tiles.TERRAIN_BARRACKS_FREE],
         ["FACTORY", self.tiles.TERRAIN_FACTORY_FREE, "terrain", self.tiles.TERRAIN_FACTORY_FREE],
         ["AIRPORT", self.tiles.TERRAIN_AIRPORT_FREE, "terrain", self.tiles.TERRAIN_AIRPORT_FREE],
+		["ROCKET_FACTORY", self.tiles.TERRAIN_ROCKET_FREE, "terrain", self.tiles.TERRAIN_ROCKET_FREE],
         ["SPAWN", self.tiles.TERRAIN_SPAWN, "terrain", self.tiles.TERRAIN_SPAWN],
         ["GSM_TOWER", self.tiles.TERRAIN_TOWER_FREE, "terrain", self.tiles.TERRAIN_TOWER_FREE],
         ["BARRACKS", self.tiles.TERRAIN_BARRACKS_RED, "terrain", self.tiles.TERRAIN_BARRACKS_RED],
         ["FACTORY", self.tiles.TERRAIN_FACTORY_RED, "terrain", self.tiles.TERRAIN_FACTORY_RED],
         ["AIRPORT", self.tiles.TERRAIN_AIRPORT_RED, "terrain", self.tiles.TERRAIN_AIRPORT_RED],
         ["TOWER", self.tiles.TERRAIN_TOWER_RED, "terrain", self.tiles.TERRAIN_TOWER_RED],
-        ["BARRACKS", self.tiles.TERRAIN_BARRACKS_BLUE, "terrain", self.tiles.TERRAIN_BARRACKS_BLUE],
+        ["ROCKET_FACTORY", self.tiles.TERRAIN_ROCKET_RED, "terrain", self.tiles.TERRAIN_ROCKET_RED],
+		["BARRACKS", self.tiles.TERRAIN_BARRACKS_BLUE, "terrain", self.tiles.TERRAIN_BARRACKS_BLUE],
         ["FACTORY", self.tiles.TERRAIN_FACTORY_BLUE, "terrain", self.tiles.TERRAIN_FACTORY_BLUE],
         ["AIRPORT", self.tiles.TERRAIN_AIRPORT_BLUE, "terrain", self.tiles.TERRAIN_AIRPORT_BLUE],
         ["TOWER", self.tiles.TERRAIN_TOWER_BLUE, "terrain", self.tiles.TERRAIN_TOWER_BLUE],
+		["ROCKET_FACTORY", self.tiles.TERRAIN_ROCKET_BLUE, "terrain", self.tiles.TERRAIN_ROCKET_BLUE],
     ]
     self.units_blocks = [
         ["INFANTRY", self.tiles.UNIT_INFANTRY_BLUE, "units", 0],
         ["TANK", self.tiles.UNIT_TANK_BLUE, "units", 1],
         ["HELI", self.tiles.UNIT_HELICOPTER_BLUE, "units", 2],
-        ["INFANTRY", self.tiles.UNIT_INFANTRY_RED, "units", 3],
-        ["TANK", self.tiles.UNIT_TANK_RED, "units", 4],
-        ["HELI", self.tiles.UNIT_HELICOPTER_RED, "units", 5],
-        ["CIVILIAN", self.tiles.UNIT_CIVILIAN, "units", 6]
+        ["ROCKETEER", self.tiles.UNIT_ROCKETEER_BLUE, "units", 3],
+		["INFANTRY", self.tiles.UNIT_INFANTRY_RED, "units", 4],
+        ["TANK", self.tiles.UNIT_TANK_RED, "units", 5],
+        ["HELI", self.tiles.UNIT_HELICOPTER_RED, "units", 6],
+        ["ROCKETEER", self.tiles.UNIT_ROCKETEER_BLUE, "units", 7],
+		["CIVILIAN", self.tiles.UNIT_CIVILIAN, "units", 8]
     ]
 
 func bind_panel(building_block_panel_wrapper_node):
