@@ -1,7 +1,7 @@
 extends "unit.gd"
 
 func _init():
-	type = 0
+	type = 3
 	type_name = 'rocketeer'
 	type_name_label = 'LABEL_WORKSHOP_INFANTRY'
 
