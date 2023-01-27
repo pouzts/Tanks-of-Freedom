@@ -47,7 +47,6 @@ const UNIT_CIVILIAN = 35
 # Add new terrain/units here
 const TERRAIN_ROCKET_FREE = 36
 # const TERRAIN_TENT_FREE = 37
-# const TERRAIN_TENT_FREE = 38
 const TERRAIN_ROCKET_RED = 39
 
 const TERRAIN_ROCKET_BLUE = 42
