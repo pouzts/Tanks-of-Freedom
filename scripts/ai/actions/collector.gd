@@ -4,6 +4,7 @@ var unit_brains = {
     "soldier" : preload("res://scripts/ai/actions/brains/soldier_brain.gd").new(),
     "tank" : preload("res://scripts/ai/actions/brains/tank_brain.gd").new(),
     "heli" : preload("res://scripts/ai/actions/brains/heli_brain.gd").new(),
+	"rocketeer" : preload("res://scripts/ai/actions/brains/rocketeer_brain.gd").new()
 }
 
 var building_brains = {
@@ -12,6 +13,7 @@ var building_brains = {
     "factory" : preload("res://scripts/ai/actions/brains/factory_brain.gd").new(),
     "airport" : preload("res://scripts/ai/actions/brains/airport_brain.gd").new(),
     "gsm tower" : preload("res://scripts/ai/actions/brains/tower_brain.gd").new(),
+	"rocket factory" : preload("res://scripts/ai/actions/brains/rocket_factory_brain.gd").new()
 }
 
 

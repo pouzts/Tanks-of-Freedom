@@ -3,7 +3,7 @@ extends "unit.gd"
 func _init():
 	type = 3
 	type_name = 'rocketeer'
-	type_name_label = 'LABEL_WORKSHOP_INFANTRY'
+	type_name_label = 'LABEL_WORKSHOP_ROCKETEER'
 
 	life = 10
 	max_life = 10

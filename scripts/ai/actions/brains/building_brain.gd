@@ -57,7 +57,8 @@ func _count_units(units):
     var counts = {
         "soldier" : 0,
         "tank" : 0,
-        "heli" : 0
+        "heli" : 0,
+        "rocketeer" : 0
     }
 
     for key in units:
