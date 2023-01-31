@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="UTF-8" ?>
-<resource_file type="PackedScene" subresource_count="2" version="2.1" version_name="Godot Engine v2.1.stable.official">
+<resource_file type="PackedScene" subresource_count="3" version="2.1" version_name="Godot Engine v2.1.4.stable.official">
+	<ext_resource path="res://assets/units/Rocketeer_Blueprints.png" type="Texture" index="1"></ext_resource>
 	<ext_resource path="res://assets/units/blueprint_units.png" type="Texture" index="0"></ext_resource>
 	<main_resource>
 		<dictionary name="_bundled" shared="false">
@@ -11,7 +12,7 @@
 			<array  len="0" shared="false">
 			</array>
 			<string> "names" </string>
-			<string_array  len="16">
+			<string_array  len="18">
 				<string> "units_blueprint" </string>
 				<string> "__meta__" </string>
 				<string> "Node2D" </string>
@@ -24,20 +25,22 @@
 				<string> "Sprite" </string>
 				<string> "tank blue" </string>
 				<string> "helicopter blue" </string>
+				<string> "rocketeer blue" </string>
 				<string> "soldier red" </string>
 				<string> "tank red" </string>
 				<string> "helicopter red" </string>
+				<string> "rocketeer red" </string>
 				<string> "protesters" </string>
 			</string_array>
 			<string> "node_count" </string>
-			<int> 8 </int>
+			<int> 10 </int>
 			<string> "node_paths" </string>
 			<array  len="0" shared="false">
 			</array>
 			<string> "nodes" </string>
-			<int_array  len="128"> 				-1, -1, 2, 0, -1, 1, 1, 0, 0, 0, 0, 9, 3, -1, 5, 4, 1, 5, 2, 6, 3, 7, 4, 8, 5, 0, 0, 0, 9, 10, -1, 5, 4, 6, 5, 2, 6, 3, 7, 4, 8, 7, 0, 0, 0, 9, 11, -1, 5, 4, 8, 5, 2, 6, 3, 7, 4, 8, 9, 0, 0, 0, 9, 12, -1, 5, 4, 10, 5, 2, 6, 3, 7, 4, 8, 11, 0, 0, 0, 9, 13, -1, 5, 4, 12, 5, 2, 6, 3, 7, 4, 8, 13, 0, 0, 0, 9, 14, -1, 5, 4, 14, 5, 2, 6, 3, 7, 4, 8, 15, 0, 0, 0, 9, 15, -1, 5, 4, 16, 5, 2, 6, 3, 7, 4, 8, 17, 0 </int_array>
+			<int_array  len="162"> 				-1, -1, 2, 0, -1, 1, 1, 0, 0, 0, 0, 9, 3, -1, 5, 4, 1, 5, 2, 6, 3, 7, 4, 8, 5, 0, 0, 0, 9, 10, -1, 5, 4, 6, 5, 2, 6, 3, 7, 4, 8, 7, 0, 0, 0, 9, 11, -1, 5, 4, 8, 5, 2, 6, 3, 7, 4, 8, 9, 0, 0, 0, 9, 12, -1, 5, 4, 10, 5, 11, 6, 3, 7, 4, 8, 5, 0, 0, 0, 9, 13, -1, 5, 4, 12, 5, 2, 6, 3, 7, 4, 8, 13, 0, 0, 0, 9, 14, -1, 5, 4, 14, 5, 2, 6, 3, 7, 4, 8, 15, 0, 0, 0, 9, 15, -1, 5, 4, 16, 5, 2, 6, 3, 7, 4, 8, 17, 0, 0, 0, 9, 16, -1, 5, 4, 18, 5, 11, 6, 3, 7, 4, 8, 7, 0, 0, 0, 9, 17, -1, 5, 4, 19, 5, 2, 6, 3, 7, 4, 8, 20, 0 </int_array>
 			<string> "variants" </string>
-			<array  len="18" shared="false">
+			<array  len="21" shared="false">
 				<dictionary  shared="false">
 					<string> "__editor_plugin_screen__" </string>
 					<string> "2D" </string>
@@ -51,12 +54,15 @@
 				<rect2> 32, 0, 32, 32 </rect2>
 				<vector2> 79, 29 </vector2>
 				<rect2> 64, 0, 32, 32 </rect2>
+				<vector2> 48.7621, 66.8654 </vector2>
+				<resource  external="1">  </resource>
 				<vector2> 113, 30 </vector2>
 				<rect2> 96, 0, 32, 32 </rect2>
 				<vector2> 141, 29 </vector2>
 				<rect2> 128, 0, 32, 32 </rect2>
 				<vector2> 170.663, 28.3366 </vector2>
 				<rect2> 160, 0, 32, 32 </rect2>
+				<vector2> 75.9171, 66.8654 </vector2>
 				<vector2> 18.6537, 67.1516 </vector2>
 				<rect2> 0, 32, 32, 32 </rect2>
 			</array>
