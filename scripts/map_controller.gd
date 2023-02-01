@@ -70,6 +70,7 @@ var map_buildings = [
     preload('res://buildings/airport.xscn'),
     preload('res://buildings/tower.xscn'),
     preload('res://buildings/rocketeer_factory.xscn'),
+	preload('res://buildings/medic_tent.xscn'),
 	preload('res://buildings/fence.xscn')
 ]
 
@@ -78,10 +79,12 @@ var map_units = [
     preload('res://units/tank_blue.xscn'),
     preload('res://units/helicopter_blue.xscn'),
     preload('res://units/rocketeer_blue.xscn'),
+	preload('res://units/medic_blue.xscn'),
     preload('res://units/soldier_red.xscn'),
     preload('res://units/tank_red.xscn'),
     preload('res://units/helicopter_red.xscn'),
-    preload('res://units/rocketeer_red.xscn')
+    preload('res://units/rocketeer_red.xscn'),
+	preload('res://units/medic_red.xscn')
 ]
 
 var map_civilians = [
@@ -268,6 +271,9 @@ func generate_map():
             if terrain_cell == self.tileset.TERRAIN_ROCKET_FREE: # rocket factory
                 temp = map_buildings[6].instance()
                 terrain_under_building = 10
+            if terrain_cell == self.tileset.TERRAIN_TENT_FREE: # rocket factory
+                temp = map_buildings[7].instance()
+                terrain_under_building = 10
             if terrain_cell == self.tileset.TERRAIN_BARRACKS_RED: # barrack
                 temp = map_buildings[2].instance()
                 temp.player = 1
@@ -286,6 +292,10 @@ func generate_map():
                 terrain_under_building = 12
             if terrain_cell == self.tileset.TERRAIN_ROCKET_RED: # rocket factory
                 temp = map_buildings[6].instance()
+                temp.player = 1
+                terrain_under_building = 12
+            if terrain_cell == self.tileset.TERRAIN_TENT_RED: # rocket factory
+                temp = map_buildings[7].instance()
                 temp.player = 1
                 terrain_under_building = 12
             if terrain_cell == self.tileset.TERRAIN_BARRACKS_BLUE: # barrack
@@ -308,8 +318,12 @@ func generate_map():
                 temp = map_buildings[6].instance()
                 temp.player = 0
                 terrain_under_building = 11
-            if terrain_cell == self.tileset.TERRAIN_FENCE: # fence
+            if terrain_cell == self.tileset.TERRAIN_TENT_BLUE: # rocket factory
                 temp = map_buildings[7].instance()
+                temp.player = 0
+                terrain_under_building = 11
+            if terrain_cell == self.tileset.TERRAIN_FENCE: # fence
+                temp = map_buildings[8].instance()
                 terrain_under_building = 10
             if temp:
                 self.attach_object(Vector2(x,y), temp)

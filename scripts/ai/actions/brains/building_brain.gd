@@ -58,7 +58,8 @@ func _count_units(units):
         "soldier" : 0,
         "tank" : 0,
         "heli" : 0,
-        "rocketeer" : 0
+        "rocketeer" : 0,
+		"medic" : 0
     }
 
     for key in units:

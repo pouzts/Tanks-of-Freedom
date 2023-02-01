@@ -58,4 +58,4 @@ func can_defend(defender, attacker):
 	return defender.can_attack_unit_type(attacker) && defender.can_defend()
 
 func can_heal(defender1, defender2):
-	return defender1.can_attack_unit_type(defender2) && defender.can_heal()
+	return defender1.can_attack_unit_type(defender2) && defender1.can_heal()
