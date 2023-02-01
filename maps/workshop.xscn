@@ -1,10 +1,10 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 <resource_file type="PackedScene" subresource_count="9" version="2.1" version_name="Godot Engine v2.1.4.stable.official">
-	<ext_resource path="res://maps/blueprint_terrain_tileset.xml" type="TileSet" index="2"></ext_resource>
 	<ext_resource path="res://maps/action_tiles_tileset.xml" type="TileSet" index="3"></ext_resource>
 	<ext_resource path="res://maps/underground_tileset.xml" type="TileSet" index="1"></ext_resource>
 	<ext_resource path="res://maps/fog_of_war.xml" type="TileSet" index="5"></ext_resource>
 	<ext_resource path="res://maps/blueprint_units_tileset.xml" type="TileSet" index="4"></ext_resource>
+	<ext_resource path="res://maps/blueprint_terrain_tileset.xml" type="TileSet" index="2"></ext_resource>
 	<ext_resource path="res://scripts/map_controller.gd" type="Script" index="0"></ext_resource>
 	<resource type="CanvasItemShaderGraph" path="local://1">
 		<dictionary name="_code" shared="false">

@@ -25,6 +25,7 @@ var TYPE_FACTORY = 2
 var TYPE_AIRPORT = 3
 var TYPE_TOWER = 4
 var TYPE_ROCKET = 5
+var TYPE_MEDIC = 6
 
 const HAS_SAME_TYPE_OF_UNIT_MODIFIER = 3
 
@@ -73,6 +74,8 @@ func get_spawn_type():
 		return 2
 	if type == TYPE_ROCKET:
 		return 3
+	if type == TYPE_MEDIC:
+		return 4
 
 func spawn_unit(player):
 	var unit_type = self.get_spawn_type()
@@ -92,6 +95,8 @@ func get_required_ap():
 		return 40
 	if type == TYPE_ROCKET:
 		return 70
+	if type == TYPE_MEDIC:
+		return 35
 
 	return 0
 
@@ -108,6 +113,8 @@ func get_building_name():
 		return "GSM TOWER"
 	if type == TYPE_ROCKET:
 		return "ROCKET FACTORY"
+	if type == TYPE_MEDIC:
+		return "MEDIC TENT"
 
 func get_cost():
 	return get_required_ap()
