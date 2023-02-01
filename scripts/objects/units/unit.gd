@@ -258,10 +258,10 @@ func get_type_name():
 func can_attack_unit_type(defender):
     if type == 1 && defender.type == 2:
         return false
-
     return true
+
 func can_heal_unit_type(defender):
-	if type == 1 && defender.type == 2:
+	if type == 1 && defender.type == 1:
 		return false
 
 	return true

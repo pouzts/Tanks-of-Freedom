@@ -1,9 +1,10 @@
 <?xml version="1.0" encoding="UTF-8" ?>
-<resource_file type="PackedScene" subresource_count="6" version="2.1" version_name="Godot Engine v2.1.4.stable.official">
-	<ext_resource path="res://gui/corners.xscn" type="PackedScene" index="1"></ext_resource>
-	<ext_resource path="res://scripts/game_logic.gd" type="Script" index="0"></ext_resource>
-	<ext_resource path="res://scripts/camera.gd" type="Script" index="3"></ext_resource>
-	<ext_resource path="res://scripts/demo_timer.gd" type="Script" index="2"></ext_resource>
+<resource_file type="PackedScene" subresource_count="7" version="2.1" version_name="Godot Engine v2.1.4.stable.official">
+	<ext_resource path="res://gui/corners.xscn" type="PackedScene" index="2"></ext_resource>
+	<ext_resource path="res://scripts/game_logic.gd" type="Script" index="1"></ext_resource>
+	<ext_resource path="res://gui/default_theme.tres" type="Theme" index="0"></ext_resource>
+	<ext_resource path="res://scripts/camera.gd" type="Script" index="4"></ext_resource>
+	<ext_resource path="res://scripts/demo_timer.gd" type="Script" index="3"></ext_resource>
 	<resource type="SampleLibrary" path="local://1">
 
 	</resource>
@@ -12,12 +13,12 @@
 			<string> "conn_count" </string>
 			<int> 1 </int>
 			<string> "conns" </string>
-			<int_array  len="6"> 				4, 0, 83, 82, 2, 0 </int_array>
+			<int_array  len="6"> 				4, 0, 84, 83, 2, 0 </int_array>
 			<string> "editable_instances" </string>
 			<array  len="0" shared="false">
 			</array>
 			<string> "names" </string>
-			<string_array  len="84">
+			<string_array  len="85">
 				<string> "game" </string>
 				<string> "anchor/right" </string>
 				<string> "anchor/bottom" </string>
@@ -25,6 +26,7 @@
 				<string> "focus/stop_mouse" </string>
 				<string> "size_flags/horizontal" </string>
 				<string> "size_flags/vertical" </string>
+				<string> "theme/theme" </string>
 				<string> "margin/left" </string>
 				<string> "margin/top" </string>
 				<string> "margin/right" </string>
@@ -109,36 +111,37 @@
 			<array  len="0" shared="false">
 			</array>
 			<string> "nodes" </string>
-			<int_array  len="219"> 				-1, -1, 13, 0, -1, 12, 1, 0, 2, 0, 3, 1, 4, 2, 5, 3, 6, 3, 7, 4, 8, 4, 9, 4, 10, 4, 11, 5, 12, 6, 0, 0, 0, 2147483647, 14, 7, 4, 7, 4, 8, 4, 9, 4, 10, 4, 0, 0, 0, 15, 15, -1, 14, 16, 8, 17, 9, 18, 10, 19, 10, 20, 4, 21, 4, 22, 4, 23, 11, 24, 4, 25, 4, 26, 4, 27, 3, 28, 4, 29, 4, 0, 0, 0, 30, 30, -1, 8, 31, 12, 32, 2, 33, 1, 34, 4, 35, 1, 36, 1, 37, 4, 38, 13, 0, 0, 0, 44, 39, -1, 4, 40, 0, 41, 14, 42, 1, 43, 1, 0, 0, 0, 44, 45, -1, 5, 40, 0, 41, 10, 42, 1, 43, 1, 11, 15, 0, 0, 0, 61, 46, -1, 14, 47, 16, 48, 1, 49, 12, 50, 1, 51, 1, 52, 1, 53, 2, 54, 1, 55, 1, 56, 3, 57, 1, 58, 1, 59, 1, 60, 1, 0, 6, 0, 79, 62, -1, 17, 63, 0, 64, 1, 65, 2, 66, 17, 67, 18, 68, 18, 69, 19, 70, 19, 71, 2, 72, 2, 73, 1, 74, 20, 75, 21, 76, 21, 77, 21, 78, 21, 11, 22, 0, 6, 0, 81, 80, -1, 0, 0 </int_array>
+			<int_array  len="221"> 				-1, -1, 14, 0, -1, 13, 1, 0, 2, 0, 3, 1, 4, 2, 5, 3, 6, 3, 7, 4, 8, 5, 9, 5, 10, 5, 11, 5, 12, 6, 13, 7, 0, 0, 0, 2147483647, 15, 8, 4, 8, 5, 9, 5, 10, 5, 11, 5, 0, 0, 0, 16, 16, -1, 14, 17, 9, 18, 10, 19, 11, 20, 11, 21, 5, 22, 5, 23, 5, 24, 12, 25, 5, 26, 5, 27, 5, 28, 3, 29, 5, 30, 5, 0, 0, 0, 31, 31, -1, 8, 32, 13, 33, 2, 34, 1, 35, 5, 36, 1, 37, 1, 38, 5, 39, 14, 0, 0, 0, 45, 40, -1, 4, 41, 0, 42, 15, 43, 1, 44, 1, 0, 0, 0, 45, 46, -1, 5, 41, 0, 42, 11, 43, 1, 44, 1, 12, 16, 0, 0, 0, 62, 47, -1, 14, 48, 17, 49, 1, 50, 13, 51, 1, 52, 1, 53, 1, 54, 2, 55, 1, 56, 1, 57, 3, 58, 1, 59, 1, 60, 1, 61, 1, 0, 6, 0, 80, 63, -1, 17, 64, 0, 65, 1, 66, 2, 67, 18, 68, 19, 69, 19, 70, 20, 71, 20, 72, 2, 73, 2, 74, 1, 75, 21, 76, 22, 77, 22, 78, 22, 79, 22, 12, 23, 0, 6, 0, 82, 81, -1, 0, 0 </int_array>
 			<string> "variants" </string>
-			<array  len="23" shared="false">
+			<array  len="24" shared="false">
 				<int> 1 </int>
 				<bool> False </bool>
 				<bool> True </bool>
 				<int> 2 </int>
-				<real> 0 </real>
 				<resource  external="0">  </resource>
+				<real> 0 </real>
+				<resource  external="1">  </resource>
 				<dictionary  shared="false">
 					<string> "__editor_plugin_screen__" </string>
 					<string> "Script" </string>
 					<string> "_edit_lock_" </string>
 					<bool> True </bool>
 				</dictionary>
-				<resource  external="1">  </resource>
+				<resource  external="2">  </resource>
 				<int> 4 </int>
 				<resource  resource_type="SampleLibrary" path="local://1">  </resource>
 				<real> 1 </real>
 				<int> 0 </int>
 				<resource name=""></resource>				<int> 500 </int>
 				<real> 12 </real>
-				<resource  external="2">  </resource>
+				<resource  external="3">  </resource>
 				<rect2> 0, 0, 1280, 720 </rect2>
 				<vector2> 1, 1 </vector2>
 				<int> -10000000 </int>
 				<int> 10000000 </int>
 				<real> 5 </real>
 				<real> 0.2 </real>
-				<resource  external="3">  </resource>
+				<resource  external="4">  </resource>
 			</array>
 			<string> "version" </string>
 			<int> 2 </int>
