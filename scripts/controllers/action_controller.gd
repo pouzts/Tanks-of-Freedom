@@ -131,6 +131,8 @@ func __handle_unit_actions(active_field, field):
         elif active_field.object.type == 0 && field.has_building():
             if self.root_node.bag.movement_controller.can_move(active_field, field):
                 return self.capture_building(active_field, field)
+        elif field.has_unit() == 0:
+             return self.handle_healing(active_field, field)
     else:
         return self.status.list[self.status.CANNOT_DO]
 
@@ -562,8 +564,67 @@ func stats_start_time():
 func stats_set_time():
     self.root_node.bag.battle_stats.set_counting_time(self.current_player)
 
+func handle_healing(active_field, field):
+    var markers	
+    if (self.root_node.bag.battle_controller.can_healing(active_field.object, field.object)):
+        self.use_ap(field)
+
+        sound_controller.play_unit_sound(field.object, sound_controller.SOUND_ATTACK)
+        if self.root_node.bag.match_state.is_multiplayer:
+            self.root_node.bag.match_state.register_action_taken({'action': 'healing', 'who': [active_field.position.x, active_field.position.y], 'whom': [field.position.x, field.position.y]})
+
+        if (self.root_node.bag.battle_controller.resolve_heaing(active_field.object, field.object)):
+            markers = field.object.story_markers
+            self.play_destroy(field)
+            self.destroy_unit(field)
+            self.update_unit(active_field)
+
+            #gather stats
+            self.root_node.bag.battle_stats.add_kills(current_player)
+            self.collateral_damage(field.position)
+            self.root_node.bag.storyteller.register_story_event({
+                'type' : 'die',
+                'details' : {
+                    'killer' : active_field.object,
+                    'victim' : markers
+                }
+            })
+        #else:
+            #sound_controller.play_unit_sound(field.object, sound_controller.SOUND_DAMAGE)
+            #field.object.show_explosion()
+            #self.update_unit(active_field)
+            # defender can deal damage
+           # if self.root_node.bag.battle_controller.can_defend(field.object, active_field.object):
+             #   if (self.root_node.bag.battle_controller.resolve_defend(active_field.object, field.object)):
+            #        markers = active_field.object.story_markers
+           #         self.play_destroy(active_field)
+          #          self.destroy_unit(active_field)
+         #           self.clear_active_field()
+
+                    #gather stats
+        #            self.root_node.bag.battle_stats.add_kills(abs(current_player - 1))
+       #             self.collateral_damage(active_field.position)
+      #              self.root_node.bag.storyteller.register_story_event({
+     #                   'type' : 'die',
+    #                    'details' : {
+   #                         'killer' : field.object,
+  #                          'victim' : markers
+ #                       }
+#                    })
+        else:
+                    sound_controller.play_unit_sound(field.object, sound_controller.SOUND_DAMAGE)
+                    self.update_unit(active_field)
+                    active_field.object.show_explosion()
+        self.root_node.bag.fog_controller.clear_fog()
+    else:
+        sound_controller.play('no_attack')
+        self.update_unit(active_field)
+
+
+    return self.status.list[self.status.BATTLE]
+
 func handle_battle(active_field, field):
-    var markers
+    var markers	
     if (self.root_node.bag.battle_controller.can_attack(active_field.object, field.object)):
         self.use_ap(field)
 
@@ -617,6 +678,7 @@ func handle_battle(active_field, field):
     else:
         sound_controller.play('no_attack')
         self.update_unit(active_field)
+
 
     return self.status.list[self.status.BATTLE]
 
