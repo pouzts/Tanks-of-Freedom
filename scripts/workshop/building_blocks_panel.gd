@@ -56,18 +56,18 @@ func init_root(root_node):
         ["TENT", self.tiles.TERRAIN_TENT_FREE, "terrain", self.tiles.TERRAIN_TENT_FREE],
 		["SPAWN", self.tiles.TERRAIN_SPAWN, "terrain", self.tiles.TERRAIN_SPAWN],
         ["GSM_TOWER", self.tiles.TERRAIN_TOWER_FREE, "terrain", self.tiles.TERRAIN_TOWER_FREE],
+        ["BARRACKS", self.tiles.TERRAIN_BARRACKS_BLUE, "terrain", self.tiles.TERRAIN_BARRACKS_BLUE],
+        ["FACTORY", self.tiles.TERRAIN_FACTORY_BLUE, "terrain", self.tiles.TERRAIN_FACTORY_BLUE],
+        ["AIRPORT", self.tiles.TERRAIN_AIRPORT_BLUE, "terrain", self.tiles.TERRAIN_AIRPORT_BLUE],
+        ["TOWER", self.tiles.TERRAIN_TOWER_BLUE, "terrain", self.tiles.TERRAIN_TOWER_BLUE],
+		["ROCKET", self.tiles.TERRAIN_ROCKET_BLUE, "terrain", self.tiles.TERRAIN_ROCKET_BLUE],
+    	["TENT", self.tiles.TERRAIN_TENT_BLUE, "terrain", self.tiles.TERRAIN_TENT_BLUE],
         ["BARRACKS", self.tiles.TERRAIN_BARRACKS_RED, "terrain", self.tiles.TERRAIN_BARRACKS_RED],
         ["FACTORY", self.tiles.TERRAIN_FACTORY_RED, "terrain", self.tiles.TERRAIN_FACTORY_RED],
         ["AIRPORT", self.tiles.TERRAIN_AIRPORT_RED, "terrain", self.tiles.TERRAIN_AIRPORT_RED],
         ["TOWER", self.tiles.TERRAIN_TOWER_RED, "terrain", self.tiles.TERRAIN_TOWER_RED],
         ["ROCKET", self.tiles.TERRAIN_ROCKET_RED, "terrain", self.tiles.TERRAIN_ROCKET_RED],
-		["TENT", self.tiles.TERRAIN_TENT_RED, "terrain", self.tiles.TERRAIN_TENT_RED],
-		["BARRACKS", self.tiles.TERRAIN_BARRACKS_BLUE, "terrain", self.tiles.TERRAIN_BARRACKS_BLUE],
-        ["FACTORY", self.tiles.TERRAIN_FACTORY_BLUE, "terrain", self.tiles.TERRAIN_FACTORY_BLUE],
-        ["AIRPORT", self.tiles.TERRAIN_AIRPORT_BLUE, "terrain", self.tiles.TERRAIN_AIRPORT_BLUE],
-        ["TOWER", self.tiles.TERRAIN_TOWER_BLUE, "terrain", self.tiles.TERRAIN_TOWER_BLUE],
-		["ROCKET", self.tiles.TERRAIN_ROCKET_BLUE, "terrain", self.tiles.TERRAIN_ROCKET_BLUE],
-    	["TENT", self.tiles.TERRAIN_TENT_BLUE, "terrain", self.tiles.TERRAIN_TENT_BLUE]
+		["TENT", self.tiles.TERRAIN_TENT_RED, "terrain", self.tiles.TERRAIN_TENT_RED]
 	]
     self.units_blocks = [
         ["INFANTRY", self.tiles.UNIT_INFANTRY_BLUE, "units", 0],
@@ -129,13 +129,53 @@ func fill_blocks_panel(blocks):
     var position = Vector2(20, 50)
     var index = 0
     self.clear_blocks_panel()
+    # stupid hack but whatever
+    var rocket_index = 0
+    var rocketeer_index = 0
+    var tent_index = 0
+    var medic_index = 0
     for block in blocks:
         new_block = self.block_template.instance()
-        new_block.get_node("tile").set_frame(block[1])
+        # if there's more time, this would be done more efficiently
+        if block[1] >= 35 and block[1] < 38:
+            new_block.get_node("tile").set_scale(Vector2(0, 0))
+            new_block.get_node("rocket_factory_tile").set_frame(rocket_index)
+            new_block.get_node("medic_tent_tile").set_scale(Vector2(0, 0))
+            new_block.get_node("rocketeer_tile").set_scale(Vector2(0, 0))
+            new_block.get_node("medic_tile").set_scale(Vector2(0, 0))
+            rocket_index += 1
+        elif block[1] >= 38 and block[1] < 41:
+            new_block.get_node("tile").set_scale(Vector2(0, 0))
+            new_block.get_node("rocket_factory_tile").set_scale(Vector2(0, 0))
+            new_block.get_node("medic_tent_tile").set_frame(tent_index)
+            new_block.get_node("rocketeer_tile").set_scale(Vector2(0, 0))
+            new_block.get_node("medic_tile").set_scale(Vector2(0, 0))
+            tent_index += 1
+        elif block[1] == 41 or block[1] == 42:
+            new_block.get_node("tile").set_scale(Vector2(0, 0))
+            new_block.get_node("rocket_factory_tile").set_scale(Vector2(0, 0))
+            new_block.get_node("medic_tent_tile").set_scale(Vector2(0, 0))
+            new_block.get_node("rocketeer_tile").set_frame(rocketeer_index)
+            new_block.get_node("medic_tile").set_scale(Vector2(0, 0))
+            rocketeer_index += 1
+        elif block[1] == 43 or block[1] == 44:
+            new_block.get_node("tile").set_scale(Vector2(0, 0))
+            new_block.get_node("rocket_factory_tile").set_scale(Vector2(0, 0))
+            new_block.get_node("medic_tent_tile").set_scale(Vector2(0, 0))
+            new_block.get_node("rocketeer_tile").set_scale(Vector2(0, 0))
+            new_block.get_node("medic_tile").set_frame(medic_index)
+            medic_index += 1
+        else:
+            new_block.get_node("tile").set_frame(block[1])
+            new_block.get_node("rocket_factory_tile").set_scale(Vector2(0, 0))
+            new_block.get_node("medic_tent_tile").set_scale(Vector2(0, 0))
+            new_block.get_node("rocketeer_tile").set_scale(Vector2(0, 0))
+            new_block.get_node("medic_tile").set_scale(Vector2(0, 0))
+        
         new_block.get_node("select/name").set_text(tr("LABEL_WORKSHOP_" + block[0]))
         new_block.get_node("select").connect("pressed", self, "set_building_block_type", [block[2], block[3], block[0]])
         self.blocks_area.add_child(new_block)
-        if index > 0 && index % 5 == 0:
+        if index > 0 && index % 6 == 0:
             position.x = 20
             position.y = position.y + 100
         elif index > 0:
